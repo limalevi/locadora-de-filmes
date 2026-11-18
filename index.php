@@ -30,6 +30,7 @@ $generos = $statement_genero -> fetchAll(PDO::FETCH_ASSOC);
         <a href="" class="header-link">Filmes</a>
         <a href="" class="header-link">Funcionários</a>
         <a href="" class="header-link">Clientes</a>
+        <a href="emprestimo.php" class="header-link">Empréstimos</a>
       </nav>
       
     </div>
