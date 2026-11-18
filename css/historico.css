@@ -1,9 +1,12 @@
 :root {
+  --default-padding: 10px;
   --default-border-radius: 10px;
   --select-bg: #e9e9ed;
   --select-bg-darker: #d6d6de;
   --btn-consulta-bg: #4ba7e4;
   --btn-consulta-bg-darker: #3f8cc0;
+  --cancel-color: #df1212;
+  --cancel-color-darker: #b30d0d;
 }
 
 * {
@@ -30,7 +33,7 @@ body {
 }
 
 #select {
-  padding: 10px;
+  padding: var(--default-padding);
   outline: none;
   border: none;
   background: var(--select-bg);
@@ -46,7 +49,7 @@ body {
 
 #btn-consulta {
   grid-area: btn-consulta;
-  padding: 10px;
+  padding: var(--default-padding);
   font-size: 14px;
   cursor: pointer;
   border-radius: var(--default-border-radius);
@@ -83,11 +86,15 @@ th, td {
 
 #btn-voltar {
   margin-top: 10px;
+  padding: var(--default-padding);
+  background: var(--cancel-color);
   text-decoration: none;
-  color: #000;
-  border-bottom: 2px solid transparent;
+  color: #fff;
+  font-family: sans-serif;
+  border-radius: var(--default-border-radius);
+  text-align: center;
   transition: 0.2s all ease-in-out;
 }
 #btn-voltar:hover {
-  border-bottom: 2px solid #000;
+  background: var(--cancel-color-darker);
 }
