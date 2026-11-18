@@ -11,7 +11,8 @@ try {
   $sql = "INSERT INTO filme(titulo, ano_lancamento, duracao_min, preco_diaria, id_genero)
           VALUES('$titulo', '$anoLancamento', '$duracao', '$precoDiaria', '$genero')";
   $statement = $pdo -> query($sql);
-  header('Location: /locadora-de-filmes/index.php');
+  
+  header('location:/');
   exit();
 } catch(PDOException $e) {
   echo 'Erro ao cadastrar o filme: ' . $e -> getMessage();

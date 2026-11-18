@@ -2,7 +2,7 @@
 $host = "localhost";
 $dbname = "locadora_filmes";
 $usuario = "root";
-$senha = "";
+$senha = "1234";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $usuario, $senha);

@@ -1,21 +1,20 @@
 <?php
 require('conexao.php');
 
-$clientes = $pdo->query("SELECT * FROM cliente")
-                ->fetchAll(PDO::FETCH_ASSOC);
+$clientes = $pdo -> query("SELECT * FROM cliente") -> fetchAll(PDO::FETCH_ASSOC);
 
-$filmes = $pdo->query(
-    "SELECT e.id_exemplar, f.titulo
+$filmes = $pdo -> query(
+  "SELECT e.id_exemplar, f.titulo
      FROM exemplar e
      JOIN filme f ON e.id_filme = f.id_filme"
-)->fetchAll(PDO::FETCH_ASSOC);
+) -> fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Empréstimo de Filmes</title>
+  <meta charset="UTF-8">
+  <title>Empréstimo de Filmes</title>
 </head>
 <body>
 
@@ -23,30 +22,31 @@ $filmes = $pdo->query(
 
 <form action="add_emprestimo.php" method="POST">
 
-    <label>Cliente:</label>
-    <select name="id_cliente" required>
-        <?php foreach ($clientes as $cliente): ?>
-            <option value="<?= $cliente['id_cliente'] ?>">
-                <?= htmlspecialchars($cliente['nome']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+  <label>Cliente:</label>
 
-    <br><br>
+  <select name="id_cliente" required>
+    <?php foreach ($clientes as $cliente): ?>
+      <option value="<?= $cliente['id_cliente'] ?>">
+        <?= htmlspecialchars($cliente['nome']) ?>
+      </option>
+    <?php endforeach; ?>
+  </select>
 
-    <label>Filme:</label>
-    <select name="id_exemplar" required>
-        <?php foreach ($filmes as $filme): ?>
-            <option value="<?= $filme['id_exemplar'] ?>">
-                <?= htmlspecialchars($filme['titulo']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+  <br><br>
 
-    <br><br>
+  <label>Filme:</label>
 
-    <button type="submit">Realizar empréstimo</button>
+  <select name="id_exemplar" required>
+    <?php foreach ($filmes as $filme): ?>
+      <option value="<?= $filme['id_exemplar'] ?>">
+        <?= htmlspecialchars($filme['titulo']) ?>
+      </option>
+    <?php endforeach; ?>
+  </select>
 
+  <br><br>
+
+  <button type="submit">Realizar empréstimo</button>
 </form>
 
 <p><a href="historico.php">Consultar histórico</a></p>
