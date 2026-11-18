@@ -19,14 +19,14 @@ if ($idCliente) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Histórico de Empréstimos</title>
+  <link rel="stylesheet" href="css/historico.css">
 </head>
 <body>
-  <h1>Histórico de Empréstimos</h1>
-
+  <h1 id="titulo">Histórico de Empréstimos</h1>
   <form method="GET">
-    <label>Selecione o cliente:</label>
+    <label id="label">Selecione o cliente:</label>
 
-    <select name="id_cliente">
+    <select name="id_cliente" id="select">
       <?php foreach ($clientes as $cliente): ?>
         <option value="<?= $cliente['id_cliente'] ?>"
           <?= $idCliente == $cliente['id_cliente'] ? 'selected' : '' ?>>
@@ -35,14 +35,13 @@ if ($idCliente) {
       <?php endforeach; ?>
     </select>
 
-    <button type="submit">Consultar</button>
+    <button type="submit" id="btn-consulta">Consultar</button>
   </form>
-
-  <br>
+</div>
 
   <?php if ($idCliente): ?>
 
-    <table border="1" cellpadding="10">
+    <table>
       <tr>
         <th>Filme</th>
         <th>Data do empréstimo</th>
@@ -79,6 +78,6 @@ if ($idCliente) {
 
   <?php endif; ?>
 
-  <p><a href="emprestimo.php">Voltar</a></p>
+  <a href="emprestimo.php" id="btn-voltar">Voltar</a>
 </body>
 </html>

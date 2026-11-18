@@ -1,0 +1,93 @@
+:root {
+  --default-border-radius: 10px;
+  --select-bg: #e9e9ed;
+  --select-bg-darker: #d6d6de;
+  --btn-consulta-bg: #4ba7e4;
+  --btn-consulta-bg-darker: #3f8cc0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#titulo {
+  text-align: center;
+  grid-area: titulo;
+}
+
+#label {
+  grid-area: label;
+}
+
+#select {
+  padding: 10px;
+  outline: none;
+  border: none;
+  background: var(--select-bg);
+  font-size: 14px;
+  border-radius: var(--default-border-radius);
+  grid-area: select;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+#select:hover {
+  background: var(--select-bg-darker);
+}
+
+#btn-consulta {
+  grid-area: btn-consulta;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: var(--default-border-radius);
+  border: none;
+  background: var(--btn-consulta-bg);
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+#btn-consulta:hover {
+  background: var(--btn-consulta-bg-darker)
+}
+
+form {
+  width: 45%;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-areas:
+    "titulo titulo titulo titulo"
+    "label select select btn-consulta";
+  gap: 10px;
+  align-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #a0a0a0;
+}
+
+#btn-voltar {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+#btn-voltar:hover {
+  border-bottom: 2px solid #000;
+}
