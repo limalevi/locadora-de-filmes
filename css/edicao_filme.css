@@ -1,0 +1,134 @@
+:root {
+  --body-bg: #f8f8f8;
+  --header-bg: #fff;
+  --header-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  --link-color: #000;
+  --input-border: #c0c0c0;
+  --input-focus-border: #4ba7e4;
+  --btn-add-filme-bg: #4ba7e4;
+  --input-border-radius: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--body-bg);
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background: var(--header-bg);
+  box-shadow: var(--header-shadow);
+}
+
+#header-container {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-link {
+  margin-left: 15px;
+  text-decoration: none;
+  color: var(--link-color);
+  border-bottom: 2px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+.header-link:hover {
+  border-bottom: 2px solid var(--link-color);
+}
+
+main {
+  padding-top: 110px;
+}
+
+input {
+  padding: 5px;
+  font-size: 14px;
+}
+
+input[type=submit] {
+  border-radius: var(--input-border-radius);
+  border: var(--input-border);
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+select {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: var(--input-border-radius);
+  border: var(--input-border);
+  cursor: pointer;
+}
+
+option {
+  font-size: 14px;
+}
+
+.txt-input {
+  outline: none;
+  border-radius: var(--input-border-radius);
+  border: 1px solid var(--input-border);
+  transition: 0.2s all ease-in-out;
+}
+.txt-input:focus {
+  border: 1px solid var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(75, 167, 228, 0.3);
+}
+
+#titulo {
+  grid-area: titulo;
+}
+
+#ano-lancamento {
+  grid-area: ano-lancamento;
+}
+
+#duracao {
+  grid-area: duracao;
+}
+
+#genero {
+  grid-area: genero;
+}
+
+#preco-diaria {
+  grid-area: preco-diaria;
+}
+
+#btn-editar-filme {
+  grid-area: btn-add-filme;
+  border: none;
+  background: var(--btn-add-filme-bg);
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+#btn-editar-filme:hover {
+  background: #3f8cc0;
+}
+
+.filme-form {
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+  grid-template-areas:
+    "titulo titulo ano-lancamento"
+    "duracao genero preco-diaria"
+    "btn-add-filme . .";
+}

@@ -1,0 +1,88 @@
+:root {
+  --body-bg: #f8f8f8;
+  --default-border-radius: 10px;
+  --confirm-color: #36ba25;
+  --confirm-color-darker: #288c1b;
+  --select-bg: #e9e9ed;
+  --select-bg-darker: #d6d6de;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: var(--body-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding: 25px;
+  border-radius: var(--default-border-radius);
+  background: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.label {
+  grid-area: label;
+}
+
+.select {
+  padding: 10px;
+  outline: none;
+  border: none;
+  background: var(--select-bg);
+  font-size: 14px;
+  border-radius: var(--default-border-radius);
+  grid-area: select;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+.select:hover {
+  background: var(--select-bg-darker);
+}
+
+.select-container {
+  margin: 15px 0;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-areas:
+    "label select select select";
+}
+
+#btn-emprestimo {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: var(--default-border-radius);
+  border: none;
+  background: var(--confirm-color);
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+#btn-emprestimo:hover {
+  background: var(--confirm-color-darker);
+}
+
+#btn-container {
+  margin-top: 10px;
+}
+
+#btn-container a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+#btn-container a:hover {
+  border-bottom: 2px solid #000;
+}

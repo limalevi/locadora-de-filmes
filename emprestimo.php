@@ -14,43 +14,44 @@ $filmes = $pdo -> query(
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empréstimo de Filmes</title>
+  <link rel="stylesheet" href="css/emprestimo.css">
 </head>
 <body>
 
-<h1>Realizar Empréstimo</h1>
-
 <form action="add_emprestimo.php" method="POST">
+  <h1>Realizar Empréstimo</h1>
 
-  <label>Cliente:</label>
+  <div class="select-container">
+    <label class="label">Cliente:</label>
+    <select name="id_cliente" class="select" required>
+      <?php foreach ($clientes as $cliente): ?>
+        <option value="<?= $cliente['id_cliente'] ?>">
+          <?= htmlspecialchars($cliente['nome']) ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+  </div>
 
-  <select name="id_cliente" required>
-    <?php foreach ($clientes as $cliente): ?>
-      <option value="<?= $cliente['id_cliente'] ?>">
-        <?= htmlspecialchars($cliente['nome']) ?>
-      </option>
-    <?php endforeach; ?>
-  </select>
+  <div class="select-container">
+    <label class="label">Filme:</label>
+    <select name="id_exemplar" class="select" required>
+      <?php foreach ($filmes as $filme): ?>
+        <option value="<?= $filme['id_exemplar'] ?>">
+          <?= htmlspecialchars($filme['titulo']) ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+  </div>
 
-  <br><br>
-
-  <label>Filme:</label>
-
-  <select name="id_exemplar" required>
-    <?php foreach ($filmes as $filme): ?>
-      <option value="<?= $filme['id_exemplar'] ?>">
-        <?= htmlspecialchars($filme['titulo']) ?>
-      </option>
-    <?php endforeach; ?>
-  </select>
-
-  <br><br>
-
-  <button type="submit">Realizar empréstimo</button>
+  <button type="submit" id="btn-emprestimo">Realizar empréstimo</button>
 </form>
 
-<p><a href="historico.php">Consultar histórico</a></p>
-<p><a href="index.php">Voltar ao início</a></p>
+<div id="btn-container">
+  <a href="index.php">Voltar ao início</a>
+  <a href="historico.php">Consultar histórico</a>
+</div>
 
 </body>
 </html>
