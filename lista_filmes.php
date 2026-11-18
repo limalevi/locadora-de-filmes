@@ -23,7 +23,7 @@ try {
   $resultado = $statement -> fetchAll(PDO::FETCH_ASSOC);
 
   header('Content-Type: text/csv; charset=UTF-8');
-  header('Content-Disposition: attachment; filename="filmes.csv"');
+  header('Content-Disposition: attachment; filename="filmes_mais_alugados.csv"');
 
   $output = fopen('php://output', 'w');
 

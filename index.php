@@ -85,7 +85,7 @@ $generos = $statement_genero -> fetchAll(PDO::FETCH_ASSOC);
         placeholder="Preço da diária"
         min="0"
         max="99"
-        step="0.01"
+        step="1"
         required>
 
       <input
@@ -93,7 +93,7 @@ $generos = $statement_genero -> fetchAll(PDO::FETCH_ASSOC);
         value="Cadastrar filme"
         id="btn-add-filme">
 
-      <a href="lista_filmes.php">Baixar lista de filmes</a>
+      <a href="lista_filmes.php" id="link-download">Baixar lista de filmes mais alugados</a>
     </form>
 
     <table>
@@ -121,8 +121,8 @@ $generos = $statement_genero -> fetchAll(PDO::FETCH_ASSOC);
             <td><?= $filme['nome'] ?></td>
             <td><?= "$filme[preco_diaria] R$" ?></td>
             <td>
-              <a href="edicao_filme.php?id=<?= $filme['id_filme'] ?>">Editar</a>
-              <a href="excluir_filme.php?id=<?= $filme['id_filme'] ?>">Excluir</a>
+              <a href="edicao_filme.php?id=<?= $filme['id_filme'] ?>" id="link-editar">Editar</a>
+              <a href="excluir_filme.php?id=<?= $filme['id_filme'] ?>" id="link-excluir">Excluir</a>
             </td>
           </tr>
         <?php endforeach ?>

@@ -6,7 +6,13 @@
   --input-border: #c0c0c0;
   --input-focus-border: #4ba7e4;
   --btn-add-filme-bg: #4ba7e4;
-  --input-border-radius: 5px;
+  --confirm-color: #36ba25;
+  --confirm-color-darker: #288c1b;
+  --default-border-radius: 10px;
+  --default-padding: 10px;
+  --select-bg: #e9e9ed;
+  --select-bg-darker: #d6d6de;
+  --cancel-color: #df1212;
 }
 
 * {
@@ -69,11 +75,16 @@ input::placeholder {
 }
 
 select {
-  padding: 5px;
+  padding: 10px;
+  background: var(--select-bg);
   font-size: 14px;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--default-border-radius);
   border: var(--input-border);
   cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+select:hover {
+  background: var(--select-bg-darker);
 }
 
 option {
@@ -81,8 +92,9 @@ option {
 }
 
 .txt-input {
+  padding: var(--default-padding);
   outline: none;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--default-border-radius);
   border: 1px solid var(--input-border);
   transition: 0.2s all ease-in-out;
 }
@@ -113,13 +125,31 @@ option {
 
 #btn-add-filme {
   grid-area: btn-add-filme;
+  padding: var(--default-padding);
   border: none;
+  border-radius: var(--default-border-radius);
   background: var(--btn-add-filme-bg);
   color: #fff;
   transition: 0.2s all ease-in-out;
 }
 #btn-add-filme:hover {
   background: #3f8cc0;
+}
+
+#link-download {
+  grid-area: link-download;
+  padding: var(--default-padding);
+  background: var(--confirm-color);
+  border-radius: var(--default-border-radius);
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+#link-download:hover {
+  background: var(--confirm-color-darker);
 }
 
 .filme-form {
@@ -130,7 +160,7 @@ option {
   grid-template-areas:
     "titulo titulo ano-lancamento"
     "duracao genero preco-diaria"
-    "btn-add-filme . .";
+    "btn-add-filme btn-add-filme link-download";
 }
 
 table {
@@ -141,4 +171,25 @@ table {
 th, td {
   padding: 10px;
   border: 1px solid #a0a0a0;
+}
+
+#link-editar {
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--link-color);
+  border-bottom: 2px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+#link-editar:hover {
+  border-bottom: 2px solid var(--link-color);
+}
+
+#link-excluir {
+  text-decoration: none;
+  color: var(--cancel-color);
+  border-bottom: 2px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+#link-excluir:hover {
+  border-bottom: 2px solid var(--cancel-color);
 }
