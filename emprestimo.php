@@ -49,8 +49,8 @@ $filmes = $pdo -> query(
 </form>
 
 <div id="btn-container">
-  <a href="index.php">Voltar ao início</a>
-  <a href="historico.php">Consultar histórico</a>
+  <a href="index.php" id="btn-voltar">Voltar ao início</a>
+  <a href="historico.php" id="btn-historico">Consultar histórico</a>
 </div>
 
 </body>

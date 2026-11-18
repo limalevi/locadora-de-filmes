@@ -1,10 +1,15 @@
 :root {
   --body-bg: #f8f8f8;
+  --default-padding: 10px;
   --default-border-radius: 10px;
   --confirm-color: #36ba25;
   --confirm-color-darker: #288c1b;
   --select-bg: #e9e9ed;
   --select-bg-darker: #d6d6de;
+  --cancel-color: #df1212;
+  --cancel-color-darker: #b30d0d;
+  --btn-historico-bg: #4ba7e4;
+  --btn-historico-bg-darker: #3f8cc0;
 }
 
 * {
@@ -34,7 +39,7 @@ form {
 }
 
 .select {
-  padding: 10px;
+  padding: var(--default-padding);
   outline: none;
   border: none;
   background: var(--select-bg);
@@ -59,7 +64,7 @@ form {
 
 #btn-emprestimo {
   width: 100%;
-  padding: 10px;
+  padding: var(--default-padding);
   font-size: 14px;
   cursor: pointer;
   border-radius: var(--default-border-radius);
@@ -73,16 +78,33 @@ form {
 }
 
 #btn-container {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
-#btn-container a {
-  margin: 0 10px;
+#btn-voltar {
+  padding: var(--default-padding);
+  background: var(--cancel-color);
   text-decoration: none;
-  color: #000;
-  border-bottom: 2px solid transparent;
+  color: #fff;
+  font-family: sans-serif;
+  border-radius: var(--default-border-radius);
+  text-align: center;
   transition: 0.2s all ease-in-out;
 }
-#btn-container a:hover {
-  border-bottom: 2px solid #000;
+#btn-voltar:hover {
+  background: var(--cancel-color-darker);
+}
+
+#btn-historico {
+  padding: var(--default-padding);
+  background: var(--btn-historico-bg);
+  text-decoration: none;
+  color: #fff;
+  font-family: sans-serif;
+  border-radius: var(--default-border-radius);
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+}
+#btn-historico:hover {
+  background: var(--btn-historico-bg-darker);
 }
