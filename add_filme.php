@@ -11,6 +11,11 @@ try {
   $sql = "INSERT INTO filme(titulo, ano_lancamento, duracao_min, preco_diaria, id_genero)
           VALUES('$titulo', '$anoLancamento', '$duracao', '$precoDiaria', '$genero')";
   $statement = $pdo -> query($sql);
+
+  $idFilme = $pdo -> lastInsertId();
+  $sql = "INSERT INTO exemplar(id_filme)
+          VALUES ('$idFilme')";
+  $statement = $pdo -> query($sql);
   
   header('location:/');
   exit();
