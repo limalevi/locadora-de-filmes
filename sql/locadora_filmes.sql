@@ -1,12 +1,12 @@
 -- DDL
-# CREATE DATABASE locadora_filmes;
-# USE locadora_filmes;
+CREATE DATABASE locadora_filmes;
+USE locadora_filmes;
 
 CREATE TABLE cliente (
     id_cliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45) NOT NULL,
     cpf VARCHAR(11) NOT NULL,
-    telefone VARCHAR(45),
+    telefone VARCHAR(11),
     email VARCHAR(45),
     data_cadastro DATE NOT NULL
 );
@@ -15,14 +15,14 @@ CREATE TABLE funcionario (
     id_funcionario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45) NOT NULL,
     cpf VARCHAR(11) NOT NULL,
-    cargo VARCHAR(45),
-    matricula VARCHAR(45),
+    cargo VARCHAR(30),
+    matricula VARCHAR(9),
     ativo TINYINT NOT NULL
 );
 
 CREATE TABLE genero (
     id_genero INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45) UNIQUE NOT NULL
+    nome VARCHAR(35) UNIQUE NOT NULL
 );
 
 CREATE TABLE filme (
@@ -30,7 +30,7 @@ CREATE TABLE filme (
     titulo VARCHAR(45) NOT NULL,
     ano_lancamento INT NOT NULL,
     duracao_min INT NOT NULL,
-    preco_diaria DECIMAL NOT NULL,
+    preco_diaria DECIMAL(4, 2) NOT NULL,
     id_genero INT,
 
     CONSTRAINT fk_genero_filme FOREIGN KEY (id_genero) REFERENCES genero(id_genero) ON DELETE SET NULL
@@ -60,7 +60,7 @@ CREATE TABLE item_locacao (
     id_locacao INT NOT NULL,
     id_exemplar INT NOT NULL,
     data_devolucao DATETIME NOT NULL,
-    multa DECIMAL,
+    multa DECIMAL(4, 2),
 
     CONSTRAINT fk_locacao_item FOREIGN KEY (id_locacao) REFERENCES locacao(id_locacao),
     CONSTRAINT fk_exemplar_item FOREIGN KEY (id_exemplar) REFERENCES exemplar(id_exemplar)

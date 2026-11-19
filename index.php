@@ -85,7 +85,7 @@ $generos = $statement_genero -> fetchAll(PDO::FETCH_ASSOC);
         placeholder="Preço da diária"
         min="0"
         max="99"
-        step="1"
+        step="0.01"
         required>
 
       <input
